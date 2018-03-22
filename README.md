@@ -101,3 +101,41 @@ python mtf_validation_async_normalized.py img_path False
 ```
 
 `img_path` is the absolute path to the 10bits TIFF image after Level 1 processing. The Validation of MTF require selection of a sub-area in the image where modulation (brighness) transition occur in either vertical (North-South) or horizontal (West-East) axis.
+
+### 4. Signal to Noise Ratio
+SNR show how "clean" an image. Since there is theoretically impossible for acquiring pure "signal" image with no noise in orbit, the SNR is calculated specific to an image in a specific condition. The signal power is calculated as the mean of digital number value over a homogeneous region, with the noise power is calculated as the standard deviation of the noise within the same region.
+
+To use the validation tools as Webservices with Swagger UI:
+```
+cd SNR_Validation/
+python START_SNR_VALIDATION.py
+```
+
+To compute the SNR:
+```
+python snr_validation_async.py img_path rotate_angle
+```
+
+* `img_path` is the absolute path to the 10bits TIFF image after Level 1 processing. 
+* `rotate_angle` is the angle to rotate the image counter clockwise. This is to increase the "selectable" area of the chessboard target, by align the edge of the chessboard to the North-South and East-West axis
+
+### 5. Ground Sampling Distance
+Ground Sampling distance is actually the resolution of the Image. Resolution are validated along track and across track, using at least two control points on Earth with known latitude and longitude.
+
+To use the validation tools as Webservices with Swagger UI:
+```
+cd GSD_Validation/
+python START_GSD_VALIDATION.py
+```
+
+To compute the GSD:
+```
+python gsd_validation_async.py img_path lat1 long1 lat2 long2
+```
+
+* `img_path` is the absolute path to the 10bits TIFF image after Level 1 processing. 
+* `lat1` : latitude of control point 1
+* `long1` : longitude of control point 1
+* `lat2` : latitude of control point 2
+* `long2` : longitude of control point 2
+
