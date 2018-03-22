@@ -40,9 +40,9 @@ python image_ds_correction.py img_path ds_path channel_name
 ```
 
 There are 3 parameters:
-* img_path: path to the image data file, which is a HDF5 array
-* ds_path: path to the computed dark signal file
-* channel_name: name of the spectral band
+* `img_path`: path to the image data file, which is a HDF5 array
+* `ds_path`: path to the computed dark signal file
+* `channel_name`: name of the spectral band
 
 ### 2. Radiometric sensivities:
 Radiometric sensivities is actually the gain of each pixel in the imaging sensor. Gain coeffient is the multiply of absolute gain and relative gains. While absolute gains are remain fix for the entire life of the RS satelite, the relative gains can be validate and corrected. Validation of Radiometric sensivity is done using image taken at homogeneous areas such as the desert
@@ -80,3 +80,24 @@ There are 4 parameters:
 * `ds_path`: path to the computed dark signal file
 * `prnu_path`: path to the computed sensivity file
 * `channel_name`: name of the spectral band
+
+### 3. Optical Modulation Transfer Function
+Optical Modulation Transfer Function show how sharp an image. The validation of the MTF require image taken at specific location on-earth with chessboard target. One of the popular calibration site is the Salon de Provence RS calibration site in France
+
+To use the validation tools as Webservices with Swagger UI:
+```
+cd MTF_Validation/
+python START_MTF_VALIDATION.py
+```
+
+To compute the along-track MTF
+```
+python mtf_validation_async_normalized.py img_path True
+```
+
+To compute the across-track MTF
+```
+python mtf_validation_async_normalized.py img_path False
+```
+
+`img_path` is the absolute path to the 10bits TIFF image after Level 1 processing. The Validation of MTF require selection of a sub-area in the image where modulation (brighness) transition occur in either vertical (North-South) or horizontal (West-East) axis.
