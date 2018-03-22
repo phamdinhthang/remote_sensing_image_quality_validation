@@ -139,3 +139,18 @@ python gsd_validation_async.py img_path lat1 long1 lat2 long2
 * `lat2` : latitude of control point 2
 * `long2` : longitude of control point 2
 
+### 6. Dynamic Range
+Dynamic Range of a dedector reflect how bright and how dark an imaging instrument can capture information about a scene. Dynamic Range validation requires image of areas on earth with highest/lowest relative reflectance or absolute radiance for saturation assessment such as the Greenland or Antartica
+
+To use the validation tools as Webservices with Swagger UI:
+```
+cd DR_Validation/
+python START_DR_VALIDATION.py
+```
+
+To compute the DR:
+```
+python dr_validation_async.py img_path
+```
+
+* `img_path` is the absolute path to the 10bits TIFF image after Level 1 processing. 
