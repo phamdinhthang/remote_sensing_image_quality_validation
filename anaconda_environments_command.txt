@@ -1,0 +1,7 @@
+conda create -n naomi python=3.6 anaconda
+activate naomi
+conda env list
+pip install opencv-python
+conda install -c conda-forge flask-restplus
+conda install -c conda-forge flask-marshmallow
+pip install xmltodict
