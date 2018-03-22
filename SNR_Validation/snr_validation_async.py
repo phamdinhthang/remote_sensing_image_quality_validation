@@ -148,6 +148,8 @@ class Uniform_Assessment_SNR(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('filepath', help='String Filepath')
+    parser.add_argument('rotate', help='Integer rotate angle')
     args = parser.parse_args()
     filename = args.filepath
-    ROI_selection(filename)
+    rotate = args.rotate
+    ROI_selection(filename,rotate)

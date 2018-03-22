@@ -196,6 +196,14 @@ class GSD(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('filepath', help='String Filepath')
+    parser.add_argument('lat1', help='String Latitude of control point 1')
+    parser.add_argument('long1', help='String Longitude of control point 1')
+    parser.add_argument('lat2', help='String Latitude of control point 2')
+    parser.add_argument('long2', help='String Longitude of control point 2')
     args = parser.parse_args()
     filename = args.filepath
-    validate_gsd(filename)
+    lat1 = args.lat1
+    long1 = args.long1
+    lat2 = args.lat2
+    long2 = args.long2
+    validate_gsd(filename, lat1, long1, lat2, long2)

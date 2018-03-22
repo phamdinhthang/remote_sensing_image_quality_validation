@@ -262,10 +262,12 @@ class Slanted_Edge_MTF(object):
 
 if __name__ == '__main__':
     """
-    1 parameter: path to the 10bits tiff image
+    2 parameter: path to the 10bits tiff image, along track
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('filepath', help='String Filepath')
+    parser.add_argument('along_track', help='String Filepath')
     args = parser.parse_args()
     filename = args.filepath
-    ROI_selection(filename)
+    along_track = args.along_track
+    ROI_selection(filename,along_track)
